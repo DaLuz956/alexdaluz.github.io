@@ -1,61 +1,131 @@
-/* Base styles */
+/* styles.css - Theme for alexdaluz.com */
+
+/* Root colors and fonts */
+:root {
+  --olive: #5a6e38;
+  --orange: #d28c2f;
+  --tan: #f5f0e6;
+  --neutral: #4a4a4a;
+  --bg-gradient: linear-gradient(120deg, var(--olive), var(--orange));
+  --font-family: 'Poppins', sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: #f7f7f7;
-  color: #333;
-  line-height: 1.6;
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  color: var(--neutral);
+  scroll-behavior: smooth;
 }
 
-header {
-  background: #1a1a1a;
-  color: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-header h1 {
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--olive);
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
   margin: 0;
-  font-size: 2.5rem;
+  padding: 0;
 }
 
-header p {
-  margin-top: 0.5rem;
-  font-weight: 400;
-  font-size: 1.2rem;
-}
-
-main {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  margin: auto;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-h2 {
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-}
-
-ul {
-  padding-left: 1.5rem;
-}
-
-footer {
-  background: #eee;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-footer a {
-  color: #333;
+.navbar a {
   text-decoration: none;
+  color: var(--neutral);
+  font-weight: 600;
 }
 
-footer a:hover {
-  text-decoration: underline;
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: var(--tan);
+  border-radius: 1rem;
+  max-width: 960px;
+  margin: 2rem auto;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--olive);
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--olive);
+}
+
+.btn {
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  background-color: var(--orange);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  box-shadow: 0 0 15px var(--orange);
+  transform: translateY(-2px);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 0.9rem;
+  color: var(--neutral);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    display: none;
+  }
+  .navbar.active ul {
+    display: flex;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
 }
